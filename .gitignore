@@ -2,3 +2,4 @@
 *.xml
 build.properties
 *.project
+*.jar
