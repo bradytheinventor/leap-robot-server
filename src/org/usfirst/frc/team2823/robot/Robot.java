@@ -20,6 +20,10 @@ public class Robot extends IterativeRobot {
 		rSpark = new Spark(1);
 		lTalon = new Talon(2);
 		lSpark = new Spark(3);
+		
+		//put initial SmartDashboard values
+		SmartDashboard.putNumber("Left", 0.0);
+		SmartDashboard.putNumber("Right", 0.0);
 	}
 	
 	@Override
@@ -34,10 +38,13 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void teleopPeriodic() {
+		double left = SmartDashboard.getNumber("Left", 0.0);
+		double right = SmartDashboard.getNumber("Right", 0.0);
 	}
 	
 	@Override
 	public void testPeriodic() {
+		
 	}
 	
 	//drive the left half of the drivetrain
