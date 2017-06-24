@@ -1,13 +1,25 @@
 package org.usfirst.frc.team2823.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
 	
+	//declare output device objects
+	Talon rTalon;
+	Spark rSpark;
+	Talon lTalon;
+	Spark lSpark;
+	
 	@Override
 	public void robotInit() {
-		
+		//create output device objects
+		rTalon = new Talon(0);
+		rSpark = new Spark(1);
+		lTalon = new Talon(2);
+		lSpark = new Spark(3);
 	}
 	
 	@Override
@@ -26,6 +38,18 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void testPeriodic() {
+	}
+	
+	//drive the left half of the drivetrain
+	public void driveLeft(double p) {
+		lTalon.set(p);
+		lSpark.set(p);
+	}
+	
+	//drive the right half of the drivetrain
+	public void driveRight(double p) {
+		rTalon.set(-p);
+		rSpark.set(-p);
 	}
 }
 
