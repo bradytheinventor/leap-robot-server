@@ -38,8 +38,13 @@ public class Robot extends IterativeRobot {
 	
 	@Override
 	public void teleopPeriodic() {
+		//get speeds from controller
 		double left = SmartDashboard.getNumber("Left", 0.0);
 		double right = SmartDashboard.getNumber("Right", 0.0);
+		
+		//drive motors
+		driveLeft(left);
+		driveRight(right);
 	}
 	
 	@Override
